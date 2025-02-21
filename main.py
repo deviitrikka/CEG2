@@ -24,7 +24,9 @@ if not groq_api_key:
     raise ValueError("Missing GROQ_API_KEY in environment variables")
 
 app = FastAPI()
-origins=["https://cemailgen.vercel.app/",
+origins=["https://cemailgen.vercel.app",
+         "https://ceg-deviitrikkas-projects.vercel.app",
+         "https://ceg-nzfusjicc-deviitrikkas-projects.vercel.app",
          "http://localhost:3000",
          "http://localhost:5173"]
 app.add_middleware(
