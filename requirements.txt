@@ -9,3 +9,4 @@ pandas
 python-dotenv
 requests
 uuid
+pip install beautifulsoup4
