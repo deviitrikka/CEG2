@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+pydantic
+langchain-groq
+langchain-core
+langchain-community
+chromadb
+pandas
+python-dotenv
+requests
+uuid
