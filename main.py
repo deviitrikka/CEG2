@@ -24,10 +24,12 @@ if not groq_api_key:
     raise ValueError("Missing GROQ_API_KEY in environment variables")
 
 app = FastAPI()
-
+origins=["https://cemailgen.vercel.app/",
+         "http://localhost:3000",
+         "http://localhost:5173"]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -171,6 +173,10 @@ def clean_text(text):
 
 chain = Chain()
 portfolio = Portfolio()
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
 
 @app.post("/process1")
 def process_url(data: URLInput):
@@ -268,4 +274,4 @@ def process_url(data: URLInput):
     
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8000)
